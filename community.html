@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community & Leaderboard - OceanShield AI</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>OceanShield AI</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="dashboard.html" class="nav-link"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+        <li><a href="map.html" class="nav-link"><i class="fa-solid fa-map-location-dot"></i> Live GIS Map</a></li>
+        <li><a href="report.html" class="nav-link"><i class="fa-solid fa-camera"></i> Report Hazard</a></li>
+        <li><a href="community.html" class="nav-link active"><i class="fa-solid fa-users"></i> Community</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="btn btn-outline btn-sm"><i class="fa-solid fa-sun"></i></button>
+        <div id="nav-user-profile"></div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container dashboard-wrapper">
+    <div class="dashboard-header">
+      <div>
+        <h2 class="text-gradient"><i class="fa-solid fa-users-rays"></i> Citizen Community & Gamification Hub</h2>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Volunteer Points • Coastal Guardian Badges • Citizen Patrol Feed</p>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+      
+      <!-- Community Feed -->
+      <div class="glass-card command-panel">
+        <div class="panel-header">
+          <h3 class="panel-title"><i class="fa-solid fa-comments text-gradient"></i> Coastal Citizen Patrol Feed</h3>
+        </div>
+        <div id="community-feed-container"></div>
+      </div>
+
+      <!-- Gamification Leaderboard -->
+      <div class="glass-card command-panel">
+        <div class="panel-header">
+          <h3 class="panel-title"><i class="fa-solid fa-trophy text-gold"></i> Top Volunteers Leaderboard</h3>
+        </div>
+        <div id="volunteer-leaderboard"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/community.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

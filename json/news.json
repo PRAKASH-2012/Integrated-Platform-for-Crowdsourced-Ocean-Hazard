@@ -1,0 +1,29 @@
+[
+  {
+    "id": "NEWS-101",
+    "title": "IMD issues Red Warning for Bay of Bengal Coast: Cyclonic Storm Approaching",
+    "category": "Cyclone Updates",
+    "source": "India Meteorological Department",
+    "timestamp": "2 Hours ago",
+    "summary": "Deep depression over West Central Bay of Bengal expected to intensify into Severe Cyclonic Storm within 12 hours.",
+    "url": "#"
+  },
+  {
+    "id": "NEWS-102",
+    "title": "OceanShield AI Platform Deploys Real-time Swell Warning for Fishermen",
+    "category": "Marine News",
+    "source": "Ministry of Earth Sciences",
+    "timestamp": "4 Hours ago",
+    "summary": "Crowdsourced ocean hazard reports correlated with satellite buoys to provide zero-latency coastal flood warnings.",
+    "url": "#"
+  },
+  {
+    "id": "NEWS-103",
+    "title": "Indian Coast Guard Conducts Joint Rescue Simulation off Kochi Coast",
+    "category": "Government Notices",
+    "source": "Indian Coast Guard Media",
+    "timestamp": "6 Hours ago",
+    "summary": "Multi-agency mock drill executed to test emergency SOS signal response times and offshore medical evacuations.",
+    "url": "#"
+  }
+]

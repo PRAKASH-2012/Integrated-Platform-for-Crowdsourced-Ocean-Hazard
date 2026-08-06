@@ -1,0 +1,17 @@
+[
+  { "id": "cyclone", "name": "Cyclone", "icon": "fa-solid fa-hurricane", "category": "Meteorological", "defaultSeverity": "Critical", "description": "Severe tropical storm with destructive winds and rain." },
+  { "id": "high_waves", "name": "High Waves", "icon": "fa-solid fa-water", "category": "Oceanographic", "defaultSeverity": "High", "description": "Abnormal swell and dangerous wave surges along shorelines." },
+  { "id": "tsunami", "name": "Tsunami", "icon": "fa-solid fa-house-tsunami", "category": "Oceanographic", "defaultSeverity": "Critical", "description": "Series of ocean waves caused by underwater seismic activity." },
+  { "id": "flood", "name": "Flood", "icon": "fa-solid fa-cloud-showers-heavy", "category": "Hydrological", "defaultSeverity": "High", "description": "Coastal inundation or sea overflow into habited land." },
+  { "id": "storm_surge", "name": "Storm Surge", "icon": "fa-solid fa-wind", "category": "Meteorological", "defaultSeverity": "Critical", "description": "Rising sea levels due to low-pressure coastal storm systems." },
+  { "id": "coastal_erosion", "name": "Coastal Erosion", "icon": "fa-solid fa-hill-rockslide", "category": "Geological", "defaultSeverity": "Medium", "description": "Rapid shore washouts and structural damage to coastal cliffs." },
+  { "id": "oil_spill", "name": "Oil Spill", "icon": "fa-solid fa-oil-well", "category": "Environmental", "defaultSeverity": "High", "description": "Hazardous liquid petroleum released into marine ecosystems." },
+  { "id": "boat_accident", "name": "Boat Accident", "icon": "fa-solid fa-ship", "category": "Navigational", "defaultSeverity": "High", "description": "Fishing trawler capsizing or vessel distress at sea." },
+  { "id": "ship_collision", "name": "Ship Collision", "icon": "fa-solid fa-anchor", "category": "Navigational", "defaultSeverity": "Critical", "description": "Collision involving cargo, tanker, or passenger vessels." },
+  { "id": "sea_pollution", "name": "Sea Pollution", "icon": "fa-solid fa-trash-can", "category": "Environmental", "defaultSeverity": "Low", "description": "Toxic chemical runoff or mass industrial discharge." },
+  { "id": "floating_debris", "name": "Floating Debris", "icon": "fa-solid fa-box-open", "category": "Navigational", "defaultSeverity": "Medium", "description": "Heavy marine debris posing hazards to small sea crafts." },
+  { "id": "dead_marine_animals", "name": "Dead Marine Animals", "icon": "fa-solid fa-fish", "category": "Ecological", "defaultSeverity": "Medium", "description": "Mass stranding of cetaceans or bio-hazard marine carcasses." },
+  { "id": "illegal_fishing", "name": "Illegal Fishing", "icon": "fa-solid fa-fish-fins", "category": "Security", "defaultSeverity": "Medium", "description": "Unauthorized poaching inside protected marine zones." },
+  { "id": "missing_fisherman", "name": "Missing Fisherman", "icon": "fa-solid fa-user-slash", "category": "Emergency", "defaultSeverity": "High", "description": "Uncontactable fishing vessels or crew lost beyond EEZ." },
+  { "id": "unknown_hazard", "name": "Unknown Hazard", "icon": "fa-solid fa-triangle-exclamation", "category": "General", "defaultSeverity": "Medium", "description": "Unidentified coastal hazard requiring immediate AI scan." }
+]

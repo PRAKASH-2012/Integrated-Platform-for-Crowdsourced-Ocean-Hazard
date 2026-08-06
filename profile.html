@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile & Settings - OceanShield AI</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>OceanShield AI</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="dashboard.html" class="nav-link"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+        <li><a href="map.html" class="nav-link"><i class="fa-solid fa-map-location-dot"></i> Live GIS Map</a></li>
+        <li><a href="profile.html" class="nav-link active"><i class="fa-solid fa-user-gear"></i> Profile</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="btn btn-outline btn-sm"><i class="fa-solid fa-sun"></i></button>
+        <div id="nav-user-profile"></div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container dashboard-wrapper" style="max-width: 800px;">
+    <div class="dashboard-header">
+      <div>
+        <h2 class="text-gradient"><i class="fa-solid fa-id-card"></i> Citizen Profile & Emergency Contacts</h2>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Manage personal medical details, emergency phone contacts & volunteer badges</p>
+      </div>
+    </div>
+
+    <div class="glass-card command-panel" style="padding: 2rem; margin-bottom: 2rem;">
+      <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color);">
+        <img id="profile-avatar-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--cyan-primary);">
+        <div>
+          <h3 id="profile-user-name" style="font-size: 1.4rem;">Aarav Sharma</h3>
+          <p id="profile-user-email" style="color: var(--text-muted); font-size: 0.9rem;">citizen@oceanshield.gov.in</p>
+          <span class="badge badge-info" id="profile-user-role" style="margin-top: 0.4rem;">Citizen Volunteer</span>
+        </div>
+      </div>
+
+      <form id="profile-update-form">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <label style="font-size: 0.85rem; color: var(--text-muted);">Emergency Contact Phone</label>
+            <input type="text" value="+91 98765 43210" style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: #fff; margin-top: 0.3rem;">
+          </div>
+          <div>
+            <label style="font-size: 0.85rem; color: var(--text-muted);">Blood Group</label>
+            <input type="text" value="O +ve" style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: #fff; margin-top: 0.3rem;">
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label style="font-size: 0.85rem; color: var(--text-muted);">Specialized Volunteer Skills</label>
+          <input type="text" value="Certified Swimmer, First Aid Training, Boat Navigation" style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: #fff; margin-top: 0.3rem;">
+        </div>
+
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Profile Details</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const u = Auth.currentUser;
+      if (u) {
+        document.getElementById('profile-user-name').innerText = u.name;
+        document.getElementById('profile-user-email').innerText = u.email;
+        document.getElementById('profile-user-role').innerText = u.role;
+        document.getElementById('profile-avatar-img').src = u.avatar;
+      }
+
+      document.getElementById('profile-update-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        showToast('Profile and Emergency Details Updated!', 'success');
+      });
+    });
+  </script>
+</body>
+</html>

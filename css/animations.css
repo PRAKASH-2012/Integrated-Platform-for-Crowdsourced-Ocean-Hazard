@@ -1,0 +1,210 @@
+/* ==========================================================================
+   OceanShield AI - Micro-Animations, Pulse Effects & Dynamic Waves
+   ========================================================================== */
+
+/* Animated Canvas Background */
+.hero-ocean-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Floating Waves Container */
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  z-index: 2;
+}
+
+.wave-svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 120px;
+}
+
+.wave-path {
+  animation: moveWave 12s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.wave-path:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+  fill: rgba(0, 242, 254, 0.15);
+}
+
+.wave-path:nth-child(2) {
+  animation-delay: -4s;
+  animation-duration: 10s;
+  fill: rgba(79, 172, 254, 0.1);
+}
+
+.wave-path:nth-child(3) {
+  animation-delay: -5s;
+  animation-duration: 13s;
+  fill: rgba(3, 10, 22, 0.8);
+}
+
+@keyframes moveWave {
+  0% { transform: translate3d(-90px, 0, 0); }
+  50% { transform: translate3d(85px, 0, 0); }
+  100% { transform: translate3d(-90px, 0, 0); }
+}
+
+/* Radar Beacon Pulse */
+.pulse-beacon {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: var(--cyan-primary);
+  border-radius: 50%;
+}
+
+.pulse-beacon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--cyan-primary);
+  border-radius: 50%;
+  animation: beaconPulse 1.8s ease-out infinite;
+}
+
+.pulse-beacon.critical {
+  background-color: var(--color-critical);
+}
+.pulse-beacon.critical::after {
+  background-color: var(--color-critical);
+}
+
+@keyframes beaconPulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(3.5); opacity: 0; }
+}
+
+/* AI Laser Scan Effect */
+.ai-scan-box {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-md);
+}
+
+.ai-scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent 0%, var(--cyan-primary) 50%, transparent 100%);
+  box-shadow: 0 0 15px var(--cyan-primary);
+  animation: scanLaser 2.2s ease-in-out infinite;
+}
+
+@keyframes scanLaser {
+  0% { top: 0%; }
+  50% { top: 96%; }
+  100% { top: 0%; }
+}
+
+/* Float Element Keyframe */
+.floating-element {
+  animation: floatAnim 4s ease-in-out infinite;
+}
+
+@keyframes floatAnim {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Glow Border Animation */
+.glow-border {
+  animation: glowPulse 3s infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% { border-color: rgba(0, 242, 254, 0.2); box-shadow: 0 0 10px rgba(0, 242, 254, 0.1); }
+  100% { border-color: rgba(0, 242, 254, 0.7); box-shadow: 0 0 25px rgba(0, 242, 254, 0.4); }
+}
+
+/* Toast Notifications */
+#toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.25rem;
+  background: var(--bg-modal);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 500;
+  animation: slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 380px;
+}
+
+.toast.toast-critical {
+  border-color: var(--color-critical);
+  box-shadow: var(--shadow-critical);
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Splash Loading Screen */
+#splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #020814;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#splash-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.splash-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(0, 242, 254, 0.15);
+  border-top-color: var(--cyan-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1.25rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

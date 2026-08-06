@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live GIS Map & Safe Route Finder - OceanShield AI</title>
+  
+  <!-- Leaflet GIS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    #gis-map-container {
+      width: 100%;
+      height: calc(100vh - 160px);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-glass);
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>OceanShield AI</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="dashboard.html" class="nav-link"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+        <li><a href="map.html" class="nav-link active"><i class="fa-solid fa-map-location-dot"></i> Live GIS Map</a></li>
+        <li><a href="report.html" class="nav-link"><i class="fa-solid fa-camera"></i> Report Hazard</a></li>
+        <li><a href="analytics.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Analytics</a></li>
+        <li><a href="weather.html" class="nav-link"><i class="fa-solid fa-cloud-sun-rain"></i> Weather</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="btn btn-outline btn-sm"><i class="fa-solid fa-sun"></i></button>
+        <div id="nav-user-profile"></div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container dashboard-wrapper">
+    <div class="dashboard-header" style="margin-bottom: 1rem;">
+      <div>
+        <h2 class="text-gradient"><i class="fa-solid fa-earth-asia"></i> Real-time GIS Ocean Hazard Map</h2>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Leaflet Interactive Map • Hazard Markers • Safe Shelters • Evacuation Path Finder</p>
+      </div>
+
+      <!-- Map Layer & Filter Controls -->
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <select onchange="renderHazardMarkersOnMap(this.value)" class="btn btn-outline btn-sm" style="background: #030a16; color: #fff;">
+          <option value="all">All Hazard Types</option>
+          <option value="high_waves">High Waves</option>
+          <option value="cyclone">Cyclones</option>
+          <option value="oil_spill">Oil Spills</option>
+          <option value="boat_accident">Boat Accidents</option>
+          <option value="tsunami">Tsunami Warning</option>
+        </select>
+        
+        <button onclick="triggerEmergencySOS()" class="btn btn-danger btn-sm">
+          <i class="fa-solid fa-sos"></i> 1-Click SOS
+        </button>
+      </div>
+    </div>
+
+    <!-- Map Grid + Safe Route Sidebar -->
+    <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+      
+      <!-- Leaflet Map Container -->
+      <div id="gis-map-container"></div>
+
+      <!-- Safe Route Finder Sidebar -->
+      <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+        
+        <div class="glass-card command-panel">
+          <div class="panel-header">
+            <h3 class="panel-title"><i class="fa-solid fa-route text-gradient"></i> Safe Evacuation Route</h3>
+          </div>
+
+          <div style="margin-bottom: 1rem;">
+            <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Select Target Emergency Shelter:</label>
+            <select id="route-destination-select" style="width: 100%; padding: 0.6rem; background: #030a16; border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: #fff; font-size: 0.85rem;"></select>
+          </div>
+
+          <button onclick="calculateSafeRoute()" class="btn btn-primary btn-sm" style="width: 100%; margin-bottom: 1rem;">
+            <i class="fa-solid fa-location-arrow"></i> Calculate Safe Path
+          </button>
+
+          <div id="route-info-box"></div>
+        </div>
+
+        <!-- Legend Card -->
+        <div class="glass-card command-panel">
+          <div class="panel-header">
+            <h3 class="panel-title" style="font-size: 0.95rem;"><i class="fa-solid fa-layer-group"></i> Map Legend</h3>
+          </div>
+          <div style="font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.5rem;">
+            <div><span class="pulse-beacon critical" style="display: inline-block; vertical-align: middle;"></span> <strong style="color: var(--color-critical);">Critical Risk Hazard</strong></div>
+            <div><span class="pulse-beacon warning" style="display: inline-block; vertical-align: middle;"></span> <strong style="color: var(--color-high);">High Risk Hazard</strong></div>
+            <div><i class="fa-solid fa-house-medical" style="color: var(--cyan-primary);"></i> Designated Evacuation Shelter</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Leaflet JS Library -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Core Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/alerts.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

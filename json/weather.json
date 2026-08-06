@@ -1,0 +1,63 @@
+{
+  "summary": {
+    "seaStatus": "Rough to Very Rough in Bay of Bengal",
+    "overallRisk": "High",
+    "avgWaveHeight": "3.8 m",
+    "windSpeed": "65 km/h",
+    "activeDepressions": 2
+  },
+  "ports": [
+    {
+      "name": "Chennai Port",
+      "lat": 13.0827,
+      "lng": 80.2707,
+      "tempC": 31,
+      "humidity": 84,
+      "windKmh": 48,
+      "windDirection": "ENE",
+      "pressureMb": 998,
+      "waveHeightM": 4.1,
+      "seaTempC": 29.5,
+      "tide": "High Tide (3.2m at 02:15 AM)"
+    },
+    {
+      "name": "Visakhapatnam Port",
+      "lat": 17.6868,
+      "lng": 83.2185,
+      "tempC": 28,
+      "humidity": 92,
+      "windKmh": 78,
+      "windDirection": "SE",
+      "pressureMb": 992,
+      "waveHeightM": 5.4,
+      "seaTempC": 28.8,
+      "tide": "High Tide (3.6m at 01:45 AM)"
+    },
+    {
+      "name": "Kochi Harbour",
+      "lat": 9.9312,
+      "lng": 76.2673,
+      "tempC": 29,
+      "humidity": 88,
+      "windKmh": 32,
+      "windDirection": "SW",
+      "pressureMb": 1004,
+      "waveHeightM": 2.8,
+      "seaTempC": 29.1,
+      "tide": "Low Tide (1.1m at 04:30 AM)"
+    },
+    {
+      "name": "Mumbai JNPT",
+      "lat": 18.95,
+      "lng": 72.95,
+      "tempC": 30,
+      "humidity": 81,
+      "windKmh": 38,
+      "windDirection": "W",
+      "pressureMb": 1002,
+      "waveHeightM": 3.4,
+      "seaTempC": 29.8,
+      "tide": "High Tide (4.2m at 03:00 AM)"
+    }
+  ]
+}

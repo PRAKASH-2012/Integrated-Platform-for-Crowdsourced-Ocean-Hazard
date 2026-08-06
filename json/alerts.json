@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ALT-901",
+    "level": "Red",
+    "title": "Severe Cyclone Warning: Depression Deepening in Bay of Bengal",
+    "district": "Visakhapatnam & North AP Coast",
+    "issuedBy": "NDMA Emergency Command",
+    "timestamp": "2026-08-05T22:00:00Z",
+    "instructions": "All fishing operations suspended. Coastal residents move to cyclone shelters immediately.",
+    "affectedPopulation": 450000
+  },
+  {
+    "id": "ALT-902",
+    "level": "Orange",
+    "title": "High Surge Swell & Rough Sea Advisory",
+    "district": "Chennai & Kanchipuram Coast",
+    "issuedBy": "INCOIS / IMD Weather Center",
+    "timestamp": "2026-08-05T20:30:00Z",
+    "instructions": "Avoid swimming or approaching beach boardwalks. Waves exceeding 4.2 meters expected.",
+    "affectedPopulation": 1200000
+  },
+  {
+    "id": "ALT-903",
+    "level": "Yellow",
+    "title": "Coastal Inundation Risk & High Tide Warning",
+    "district": "Mumbai & Raigad",
+    "issuedBy": "BMC Maritime Ops",
+    "timestamp": "2026-08-05T19:00:00Z",
+    "instructions": "High tide of 4.8m expected at 01:30 AM. Low lying marine drive areas on alert.",
+    "affectedPopulation": 850000
+  },
+  {
+    "id": "ALT-904",
+    "level": "Green",
+    "title": "Clear Sea Conditions Restored",
+    "district": "Goa & North Canara",
+    "issuedBy": "Coast Guard District 11",
+    "timestamp": "2026-08-05T14:00:00Z",
+    "instructions": "Safe for water sports and routine vessel transit.",
+    "affectedPopulation": 250000
+  }
+]

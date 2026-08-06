@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - OceanShield AI</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>OceanShield AI</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="dashboard.html" class="nav-link active"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+        <li><a href="map.html" class="nav-link"><i class="fa-solid fa-map-location-dot"></i> Live GIS Map</a></li>
+        <li><a href="report.html" class="nav-link"><i class="fa-solid fa-camera"></i> Report Hazard</a></li>
+        <li><a href="analytics.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Analytics</a></li>
+        <li><a href="weather.html" class="nav-link"><i class="fa-solid fa-cloud-sun-rain"></i> Weather</a></li>
+        <li><a href="community.html" class="nav-link"><i class="fa-solid fa-users"></i> Community</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="btn btn-outline btn-sm"><i class="fa-solid fa-sun"></i></button>
+        <div id="nav-user-profile"></div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Container -->
+  <main class="container dashboard-wrapper">
+    
+    <!-- Top Role Header & Quick Role Switcher -->
+    <header class="dashboard-header">
+      <div>
+        <h2 id="dashboard-active-role" style="font-size: 1.5rem;" class="text-gradient">Citizen Hub</h2>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Real-time Disaster Intelligence & Emergency Command Operations</p>
+      </div>
+
+      <!-- Quick Switcher Pills for Testing all 4 Roles -->
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <span style="font-size: 0.75rem; font-weight: 700; color: var(--cyan-primary); text-transform: uppercase;">Switch Role:</span>
+        <div class="role-switcher-bar">
+          <button class="role-btn" onclick="Auth.switchRole('Citizen')">Citizen</button>
+          <button class="role-btn" onclick="Auth.switchRole('Government Officer')">Officer</button>
+          <button class="role-btn" onclick="Auth.switchRole('Rescue Team')">Rescue</button>
+          <button class="role-btn" onclick="Auth.switchRole('Admin')">Admin</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dynamic Role View Injected Here -->
+    <div id="dashboard-content-area"></div>
+
+  </main>
+
+  <!-- Core Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/alerts.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

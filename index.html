@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OceanShield AI - Integrated Platform for Crowdsourced Ocean Hazard Reporting & Social Analytics</title>
+  <meta name="description" content="AI Powered Coastal Disaster Intelligence & Emergency Response Platform for SIH25039. Instant hazard verification, GIS mapping, and command center response.">
+  
+  <!-- CSS Dependencies -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Animated Splash Screen -->
+  <div id="splash-screen">
+    <div class="splash-spinner"></div>
+    <h2 class="text-gradient" style="font-size: 1.8rem; font-family: var(--font-heading);">OceanShield AI</h2>
+    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.4rem;">Initializing Coastal Disaster Intelligence System...</p>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>OceanShield AI</span>
+        <span class="emblem-tag">SIH25039</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link"><i class="fa-solid fa-circle-info"></i> About</a></li>
+        <li><a href="#features" class="nav-link"><i class="fa-solid fa-bolt"></i> Features</a></li>
+        <li><a href="#how-it-works" class="nav-link"><i class="fa-solid fa-diagram-project"></i> How It Works</a></li>
+        <li><a href="map.html" class="nav-link"><i class="fa-solid fa-map-location-dot"></i> Live GIS Map</a></li>
+        <li><a href="dashboard.html" class="nav-link"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+        <li><a href="#contact" class="nav-link"><i class="fa-solid fa-headset"></i> Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <select onchange="changeLanguage(this.value)" class="btn btn-outline btn-sm" style="background: rgba(0,242,254,0.05); color: #fff; font-weight: 600;">
+          <option value="en" selected>🌐 EN</option>
+          <option value="tn">🌐 Tamil</option>
+          <option value="hi">🌐 Hindi</option>
+        </select>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle-btn" class="btn btn-outline btn-sm" title="Toggle Theme">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+
+        <!-- High Contrast Accessibility Toggle -->
+        <button id="accessibility-toggle-btn" class="btn btn-outline btn-sm" title="High Contrast Mode">
+          <i class="fa-solid fa-eye"></i>
+        </button>
+
+        <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+        <a href="dashboard.html" class="btn btn-primary btn-sm">Launch Portal</a>
+        <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" style="position: relative; padding: 9rem 0 6rem; overflow: hidden; background: radial-gradient(circle at 50% 20%, rgba(0, 242, 254, 0.12) 0%, transparent 60%);">
+    <div class="container" style="position: relative; z-index: 5; text-align: center;">
+      
+      <div style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.4rem 1.2rem; background: rgba(0, 242, 254, 0.08); border: 1px solid var(--border-glow); border-radius: var(--radius-full); margin-bottom: 1.5rem;" class="glow-border">
+        <span class="pulse-beacon critical"></span>
+        <span style="font-size: 0.85rem; font-weight: 700; color: var(--cyan-primary); letter-spacing: 0.5px;">OFFICIAL SIH25039 GOVERNMENT AI DISASTER PLATFORM</span>
+      </div>
+
+      <h1 class="hero-title" style="font-size: 3.5rem; font-weight: 800; max-width: 900px; margin: 0 auto 1.25rem; line-height: 1.15;" data-i18n="heroTitle">
+        AI Powered Coastal Disaster Intelligence & <span class="text-gradient">Emergency Response Platform</span>
+      </h1>
+
+      <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 760px; margin: 0 auto 2.5rem;" data-i18n="tagline">
+        Integrated Crowdsourced Ocean Hazard Reporting, Real-Time Leaflet GIS Heatmaps, Social Media Crisis Sentiment Analytics & Automated Coast Guard Dispatch.
+      </p>
+
+      <div style="display: flex; align-items: center; justify-content: center; gap: 1.2rem; flex-wrap: wrap;">
+        <a href="report.html" class="btn btn-primary" style="padding: 0.9rem 2rem; font-size: 1.05rem;" data-i18n="reportHazard">
+          <i class="fa-solid fa-camera"></i> Report Ocean Hazard
+        </a>
+        <a href="map.html" class="btn btn-outline" style="padding: 0.9rem 2rem; font-size: 1.05rem;" data-i18n="liveMap">
+          <i class="fa-solid fa-map-location-dot"></i> Live GIS Map
+        </a>
+        <a href="dashboard.html" class="btn btn-danger" style="padding: 0.9rem 2rem; font-size: 1.05rem;">
+          <i class="fa-solid fa-tower-observation"></i> Command Center
+        </a>
+      </div>
+
+      <!-- Quick Live Alert Ticker -->
+      <div class="glass-card" style="max-width: 850px; margin: 3.5rem auto 0; padding: 0.9rem 1.5rem; display: flex; align-items: center; gap: 1rem; text-align: left;">
+        <span class="badge badge-critical"><i class="fa-solid fa-bell"></i> LIVE ALERT</span>
+        <marquee style="font-size: 0.9rem; color: #fff; font-weight: 500;">
+          🚨 RED ALERT: Severe Cyclonic Storm approaching North AP Coast | Orange Swell Surge Warning active for Marina Beach, Chennai | Coast Guard Boats on High Standby.
+        </marquee>
+      </div>
+    </div>
+
+    <!-- Animated Waves Layer -->
+    <div class="wave-container">
+      <svg class="wave-svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="wave-path">
+          <use href="#gentle-wave" x="48" y="0" />
+          <use href="#gentle-wave" x="48" y="3" />
+          <use href="#gentle-wave" x="48" y="5" />
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Statistics Counters -->
+  <section style="padding: 3rem 0; background: rgba(0, 242, 254, 0.02); border-y: 1px solid var(--border-color);">
+    <div class="container stats-grid">
+      <div class="glass-card stat-card success">
+        <div class="stat-info">
+          <h3 id="stat-citizens">1450000</h3>
+          <p data-i18n="citizensHelped">Citizens Protected</p>
+        </div>
+        <i class="fa-solid fa-users-shield stat-icon"></i>
+      </div>
+
+      <div class="glass-card stat-card warning">
+        <div class="stat-info">
+          <h3 id="stat-incidents">12480</h3>
+          <p data-i18n="incidentsLogged">Incidents Logged</p>
+        </div>
+        <i class="fa-solid fa-triangle-exclamation stat-icon"></i>
+      </div>
+
+      <div class="glass-card stat-card">
+        <div class="stat-info">
+          <h3 id="stat-accuracy">98</h3>
+          <p data-i18n="aiAccuracy">AI Confidence %</p>
+        </div>
+        <i class="fa-solid fa-brain stat-icon"></i>
+      </div>
+
+      <div class="glass-card stat-card critical">
+        <div class="stat-info">
+          <h3>4.2 min</h3>
+          <p>Avg Response Time</p>
+        </div>
+        <i class="fa-solid fa-bolt stat-icon"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Problem Statement Section -->
+  <section id="about" style="padding: 5rem 0;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3.5rem;">
+        <span class="badge badge-info" style="margin-bottom: 0.5rem;">SMART INDIA HACKATHON 2025</span>
+        <h2 style="font-size: 2.2rem;">Addressing Ocean Hazards with <span class="text-gradient">AI & Social Analytics</span></h2>
+        <p style="color: var(--text-muted); max-width: 680px; margin: 0.5rem auto 0;">
+          India's 7,500 km coastline faces recurring cyclones, tsunamis, high swells, and oil spills. OceanShield AI bridges citizens, rescue forces, and government officers into a unified real-time intelligence hub.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <div class="glass-card" style="padding: 2rem;">
+          <i class="fa-solid fa-eye text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+          <h3>Crowdsourced Hazard Verification</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">
+            Citizens upload photos, videos, or voice recordings of hazards. Our AI Computer Vision instantly validates authenticity, filters duplicates, and scores severity.
+          </p>
+        </div>
+
+        <div class="glass-card" style="padding: 2rem;">
+          <i class="fa-solid fa-hashtag text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+          <h3>Social Media Crisis Analytics</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">
+            Monitors Twitter/X, Facebook, and local news headlines to detect panic sentiment spike, trending emergency hashtags, and emergency distress signals.
+          </p>
+        </div>
+
+        <div class="glass-card" style="padding: 2rem;">
+          <i class="fa-solid fa-satellite text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+          <h3>GIS Live Map & Safe Route Solver</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">
+            Interactive Leaflet map displaying active hazard heatmaps, safe shelters, medical units, coast guard stations, and shortest evacuation path routing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid Section -->
+  <section id="features" style="padding: 5rem 0; background: rgba(2, 8, 20, 0.7);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3.5rem;">
+        <span class="badge badge-info" style="margin-bottom: 0.5rem;">PLATFORM CAPABILITIES</span>
+        <h2 style="font-size: 2.2rem;">End-to-End <span class="text-gradient">Disaster Management Suite</span></h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <div class="glass-card" style="padding: 1.5rem;">
+          <i class="fa-solid fa-hurricane" style="color: var(--cyan-primary); font-size: 1.8rem; margin-bottom: 0.75rem;"></i>
+          <h4>15+ Supported Hazards</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem;">From Cyclones and Tsunamis to Oil Spills, Floating Debris, and Missing Fishermen.</p>
+        </div>
+
+        <div class="glass-card" style="padding: 1.5rem;">
+          <i class="fa-solid fa-phone-volume" style="color: var(--color-critical); font-size: 1.8rem; margin-bottom: 0.75rem;"></i>
+          <h4>1-Click SOS Countdown</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem;">Instant emergency broadcast with 5s countdown, auto GPS transmit & SMS trigger.</p>
+        </div>
+
+        <div class="glass-card" style="padding: 1.5rem;">
+          <i class="fa-solid fa-chart-pie" style="color: var(--gold-accent); font-size: 1.8rem; margin-bottom: 0.75rem;"></i>
+          <h4>Chart.js Disaster Analytics</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem;">Bar, Pie, Radar and Trend graphs analyzing district-wise risk & response latency.</p>
+        </div>
+
+        <div class="glass-card" style="padding: 1.5rem;">
+          <i class="fa-solid fa-user-shield" style="color: var(--color-low); font-size: 1.8rem; margin-bottom: 0.75rem;"></i>
+          <h4>Role-Based Dashboards</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem;">Tailored Command Views for Citizens, Officers, Rescue Teams, and System Admins.</p>
+        </div>
+
+        <div class="glass-card" style="padding: 1.5rem;">
+          <i class="fa-solid fa-cloud-sun-rain" style="color: var(--cyan-primary); font-size: 1.8rem; margin-bottom: 0.75rem;"></i>
+          <h4>Live Ocean Weather</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem;">Port tide timings, wave heights, atmospheric pressure, and sea temperatures.</p>
+        </div>
+
+        <div class="glass-card" style="padding: 1.5rem;">
+          <i class="fa-solid fa-medal" style="color: #a855f7; font-size: 1.8rem; margin-bottom: 0.75rem;"></i>
+          <h4>Citizen Gamification</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem;">Badges ("Coastal Guardian"), volunteer reward points, and district leaderboards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" style="padding: 5rem 0;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3.5rem;">
+        <span class="badge badge-info" style="margin-bottom: 0.5rem;">WORKFLOW PIPELINE</span>
+        <h2 style="font-size: 2.2rem;">From Citizen Report to <span class="text-gradient">Coast Guard Rescue</span></h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
+        <div class="glass-card" style="padding: 1.5rem; text-align: center;">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--cyan-primary); color: #030a16; font-weight: 800; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">1</div>
+          <h4>Crowdsourced Upload</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Citizen submits hazard photo with auto-fetched GPS location.</p>
+        </div>
+
+        <div class="glass-card" style="padding: 1.5rem; text-align: center;">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--blue-accent); color: #030a16; font-weight: 800; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">2</div>
+          <h4>AI Scan & Verification</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Computer Vision checks image authenticity, duplicate radius & spam score.</p>
+        </div>
+
+        <div class="glass-card" style="padding: 1.5rem; text-align: center;">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold-accent); color: #030a16; font-weight: 800; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">3</div>
+          <h4>Social Media Correlation</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Cross-references keyword sentiment spike on Twitter/X & Facebook.</p>
+        </div>
+
+        <div class="glass-card" style="padding: 1.5rem; text-align: center;">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--color-critical); color: #fff; font-weight: 800; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">4</div>
+          <h4>Command Action</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Officer approves report & dispatches nearest Coast Guard Rescue Team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section style="padding: 5rem 0; background: rgba(2, 8, 20, 0.7);">
+    <div class="container" style="max-width: 800px;">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 style="font-size: 2rem;">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="glass-card" style="padding: 1.5rem; margin-bottom: 1rem;">
+        <h4 style="color: var(--cyan-primary);"><i class="fa-solid fa-circle-question"></i> Does OceanShield AI require a backend server?</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.4rem;">No! All data persistence, AI simulations, role permissions, and GIS calculations run entirely client-side using Vanilla JS, LocalStorage, and JSON datasets.</p>
+      </div>
+
+      <div class="glass-card" style="padding: 1.5rem; margin-bottom: 1rem;">
+        <h4 style="color: var(--cyan-primary);"><i class="fa-solid fa-circle-question"></i> How does the AI Image Analyzer detect hazards?</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.4rem;">Our modular JavaScript AI engine simulates computer vision feature matching, returning confidence percentages, damage severity levels, and automated safety recommendations.</p>
+      </div>
+
+      <div class="glass-card" style="padding: 1.5rem;">
+        <h4 style="color: var(--cyan-primary);"><i class="fa-solid fa-circle-question"></i> Can I test different user roles?</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.4rem;">Yes! You can instantly switch between Citizen, Government Officer, Rescue Team, and System Admin roles using the quick role switcher in the top dashboard bar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 1rem;">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>OceanShield AI</span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 320px;">
+            SIH25039 Official Prototype. Empowering coastal resilience through crowdsourced disaster intelligence & AI analytics.
+          </p>
+          <div style="display: flex; gap: 1rem; margin-top: 1.25rem;">
+            <a href="#"><i class="fa-brands fa-x-twitter" style="font-size: 1.3rem;"></i></a>
+            <a href="#"><i class="fa-brands fa-github" style="font-size: 1.3rem;"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin" style="font-size: 1.3rem;"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="map.html">GIS Live Map</a></li>
+            <li><a href="report.html">Report Hazard</a></li>
+            <li><a href="analytics.html">Social Analytics</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Emergency Hotlines</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fa-solid fa-phone" style="color: var(--color-critical);"></i> Coast Guard: 1554</a></li>
+            <li><a href="#"><i class="fa-solid fa-phone" style="color: var(--color-critical);"></i> NDMA Emergency: 1078</a></li>
+            <li><a href="#"><i class="fa-solid fa-phone" style="color: var(--color-critical);"></i> Marine Police: 1093</a></li>
+            <li><a href="#"><i class="fa-solid fa-phone" style="color: var(--color-critical);"></i> Disaster Management: 112</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Government Bodies</h4>
+          <ul class="footer-links">
+            <li><a href="#">Ministry of Earth Sciences (MoES)</a></li>
+            <li><a href="#">INCOIS Hyderabad</a></li>
+            <li><a href="#">IMD Weather Center</a></li>
+            <li><a href="#">Indian Coast Guard</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 OceanShield AI (SIH25039). All Rights Reserved. Built strictly using HTML5, CSS3, Vanilla JS & LocalStorage.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/chatbot.js"></script>
+
+  <script>
+    // Animate stats on load
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        animateCounter('stat-citizens', 1450000, 2000);
+        animateCounter('stat-incidents', 12480, 1800);
+        animateCounter('stat-accuracy', 98, 1500);
+      }, 800);
+    });
+  </script>
+</body>
+</html>

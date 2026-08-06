@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disaster & Social Media Analytics - OceanShield AI</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>OceanShield AI</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="dashboard.html" class="nav-link"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+        <li><a href="map.html" class="nav-link"><i class="fa-solid fa-map-location-dot"></i> Live GIS Map</a></li>
+        <li><a href="report.html" class="nav-link"><i class="fa-solid fa-camera"></i> Report Hazard</a></li>
+        <li><a href="analytics.html" class="nav-link active"><i class="fa-solid fa-chart-line"></i> Analytics</a></li>
+        <li><a href="weather.html" class="nav-link"><i class="fa-solid fa-cloud-sun-rain"></i> Weather</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="btn btn-outline btn-sm"><i class="fa-solid fa-sun"></i></button>
+        <div id="nav-user-profile"></div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container dashboard-wrapper">
+    <div class="dashboard-header">
+      <div>
+        <h2 class="text-gradient"><i class="fa-solid fa-chart-pie"></i> Disaster & Social Media Crisis Analytics</h2>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Chart.js Incident Trends • Sentiment Analysis • Twitter/FB Monitor • Emergency Hashtag Cloud</p>
+      </div>
+    </div>
+
+    <!-- Charts Grid Row 1 -->
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+      
+      <div class="glass-card command-panel">
+        <div class="panel-header">
+          <h3 class="panel-title"><i class="fa-solid fa-chart-line text-gradient"></i> Monthly Crowdsourced Incident Trends</h3>
+        </div>
+        <canvas id="chart-trends" style="max-height: 280px;"></canvas>
+      </div>
+
+      <div class="glass-card command-panel">
+        <div class="panel-header">
+          <h3 class="panel-title"><i class="fa-solid fa-chart-pie text-gradient"></i> Hazard Distribution</h3>
+        </div>
+        <canvas id="chart-hazard-pie" style="max-height: 280px;"></canvas>
+      </div>
+
+    </div>
+
+    <!-- Social Media Intelligence Row 2 -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+      
+      <!-- Twitter/X & Facebook Live Monitor -->
+      <div class="glass-card command-panel">
+        <div class="panel-header">
+          <h3 class="panel-title"><i class="fa-brands fa-x-twitter text-gradient"></i> Social Media Distress Monitor</h3>
+          <span class="badge badge-critical"><i class="fa-solid fa-radio"></i> Realtime Stream</span>
+        </div>
+        <div id="social-feed-container" style="max-height: 380px; overflow-y: auto;"></div>
+      </div>
+
+      <!-- Sentiment Analysis & Hashtag Cloud -->
+      <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+        
+        <div class="glass-card command-panel">
+          <div class="panel-header">
+            <h3 class="panel-title"><i class="fa-solid fa-hashtag text-gradient"></i> Trending Crisis Hashtags</h3>
+          </div>
+          <div id="trending-keywords-cloud" style="display: flex; flex-wrap: wrap; gap: 0.4rem;"></div>
+        </div>
+
+        <div class="glass-card command-panel">
+          <div class="panel-header">
+            <h3 class="panel-title"><i class="fa-solid fa-radar text-gradient"></i> District Vulnerability Radar</h3>
+          </div>
+          <canvas id="chart-district-radar" style="max-height: 200px;"></canvas>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Chart.js Library CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Core Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

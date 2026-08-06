@@ -1,0 +1,65 @@
+{
+  "trendingKeywords": [
+    { "word": "#CycloneWarning", "count": 14200, "riskLevel": "High" },
+    { "word": "#HighWaves", "count": 9800, "riskLevel": "Medium" },
+    { "word": "#MarinaBeachEvacuation", "count": 8400, "riskLevel": "Critical" },
+    { "word": "#FishermenSafety", "count": 6100, "riskLevel": "Medium" },
+    { "word": "#OceanShieldAI", "count": 12500, "riskLevel": "Info" }
+  ],
+  "sentiment": {
+    "panic": 42,
+    "anxiety": 31,
+    "informative": 20,
+    "calm": 7
+  },
+  "emergencyPosts": [
+    {
+      "platform": "Twitter / X",
+      "author": "@ChennaiWeatherWatch",
+      "handle": "Chennai Marine Watch",
+      "content": "ALERT: Sea water encroaching onto Marina loop road near light house! Waves over 4 meters high breaking against sea wall. #HighWaves #ChennaiEmergency",
+      "timestamp": "12 mins ago",
+      "location": "Marina Beach, Chennai",
+      "emergencyScore": 95,
+      "verified": true,
+      "likes": 1420,
+      "shares": 580
+    },
+    {
+      "platform": "Twitter / X",
+      "author": "@VizagFisheries",
+      "handle": "Vizag Fisherman Assoc",
+      "content": "3 trawlers stuck near Dolphin's Nose reef due to sudden wind gust up to 85 kmph! Need immediate coast guard towing! SOS! #Vizag #CycloneAlert",
+      "timestamp": "24 mins ago",
+      "location": "RK Beach, Visakhapatnam",
+      "emergencyScore": 98,
+      "verified": true,
+      "likes": 2890,
+      "shares": 1240
+    },
+    {
+      "platform": "Facebook",
+      "author": "Kochi Coastal Rescue Community",
+      "handle": "Kochi Rescue Volunteers",
+      "content": "Thick oil slick spotted near Fort Kochi jetty! Smells like diesel fuel spill. Marine life washed ashore.",
+      "timestamp": "45 mins ago",
+      "location": "Kochi, Kerala",
+      "emergencyScore": 82,
+      "verified": false,
+      "likes": 540,
+      "shares": 120
+    },
+    {
+      "platform": "Instagram",
+      "author": "@mumbai_beaches_live",
+      "handle": "Mumbai Coastal Lifeguards",
+      "content": "High tide peak approaching Versova Jetty! People advised to stay clear of promenade rocks.",
+      "timestamp": "1 hour ago",
+      "location": "Mumbai, Maharashtra",
+      "emergencyScore": 76,
+      "verified": true,
+      "likes": 3200,
+      "shares": 890
+    }
+  ]
+}

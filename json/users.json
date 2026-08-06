@@ -1,0 +1,47 @@
+[
+  {
+    "id": "USR-001",
+    "name": "Aarav Sharma",
+    "email": "citizen@oceanshield.gov.in",
+    "role": "Citizen",
+    "district": "Chennai",
+    "state": "Tamil Nadu",
+    "points": 450,
+    "badge": "Coastal Guardian",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
+    "phone": "+91 98765 43210"
+  },
+  {
+    "id": "USR-002",
+    "name": "Cmdr. Rajesh Verma",
+    "email": "officer@oceanshield.gov.in",
+    "role": "Government Officer",
+    "district": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "department": "National Disaster Management Authority (NDMA)",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
+    "phone": "+91 91234 56789"
+  },
+  {
+    "id": "USR-003",
+    "name": "Capt. Priya Nair",
+    "email": "rescue@oceanshield.gov.in",
+    "role": "Rescue Team",
+    "district": "Kochi",
+    "state": "Kerala",
+    "unit": "Indian Coast Guard Command 04",
+    "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80",
+    "phone": "+91 99887 76655"
+  },
+  {
+    "id": "USR-004",
+    "name": "Dr. Vikram Sethi",
+    "email": "admin@oceanshield.gov.in",
+    "role": "Admin",
+    "district": "New Delhi",
+    "state": "Delhi",
+    "department": "Ministry of Earth Sciences (MoES)",
+    "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
+    "phone": "+91 98111 22233"
+  }
+]

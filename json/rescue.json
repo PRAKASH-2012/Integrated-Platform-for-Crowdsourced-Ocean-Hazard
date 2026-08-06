@@ -1,0 +1,54 @@
+[
+  {
+    "id": "CG-ALPHA",
+    "name": "Coast Guard Fast Patrol Ship 'Varaha'",
+    "type": "Maritime Vessel",
+    "basePort": "Chennai",
+    "status": "Rescuing",
+    "assignedReportId": "REP-2026-801",
+    "capacity": 120,
+    "crew": 18,
+    "lat": 13.049,
+    "lng": 80.286,
+    "contact": "+91 44 2345 6789"
+  },
+  {
+    "id": "NDRF-UNIT-04",
+    "name": "NDRF 10th Battalion Relief Column",
+    "type": "Land & Amphibious Force",
+    "basePort": "Visakhapatnam",
+    "status": "En Route",
+    "assignedReportId": "REP-2026-802",
+    "capacity": 250,
+    "crew": 45,
+    "lat": 17.718,
+    "lng": 83.328,
+    "contact": "+91 891 223 4455"
+  },
+  {
+    "id": "MUM-MARINE-POLICE",
+    "name": "Mumbai Marine Police Interceptor Boat 02",
+    "type": "Rapid Interceptor",
+    "basePort": "Mumbai",
+    "status": "Rescuing",
+    "assignedReportId": "REP-2026-804",
+    "capacity": 30,
+    "crew": 8,
+    "lat": 19.138,
+    "lng": 72.818,
+    "contact": "+91 22 2673 1100"
+  },
+  {
+    "id": "POLLUTION-CONTROL-01",
+    "name": "Coast Guard Pollution Response Vessel 'Samudra Prahari'",
+    "type": "Environmental Response",
+    "basePort": "Kochi",
+    "status": "Accepted",
+    "assignedReportId": "REP-2026-803",
+    "capacity": 80,
+    "crew": 24,
+    "lat": 9.975,
+    "lng": 76.28,
+    "contact": "+91 484 221 5566"
+  }
+]

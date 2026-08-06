@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - OceanShield AI Portal</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; padding: 2rem 0; background: radial-gradient(circle at 50% 30%, rgba(0, 242, 254, 0.15) 0%, #030a16 70%);">
+
+  <div class="container" style="max-width: 440px; width: 100%;">
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <a href="index.html" class="brand-logo" style="justify-content: center; font-size: 1.8rem; margin-bottom: 0.5rem;">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>OceanShield AI</span>
+      </a>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">Sign in to Coastal Disaster Intelligence Portal</p>
+    </div>
+
+    <div class="glass-card" style="padding: 2rem;">
+      <form id="login-form">
+        
+        <!-- Role Selection Tabs -->
+        <div style="margin-bottom: 1.5rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--cyan-primary); text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Select User Role</label>
+          <div class="role-switcher-bar" style="justify-content: space-around;">
+            <button type="button" class="role-btn active" data-role="Citizen" onclick="selectLoginRole('Citizen', this)">Citizen</button>
+            <button type="button" class="role-btn" data-role="Government Officer" onclick="selectLoginRole('Government Officer', this)">Officer</button>
+            <button type="button" class="role-btn" data-role="Rescue Team" onclick="selectLoginRole('Rescue Team', this)">Rescue</button>
+            <button type="button" class="role-btn" data-role="Admin" onclick="selectLoginRole('Admin', this)">Admin</button>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 0.4rem;">Official Email or ID</label>
+          <div style="position: relative;">
+            <i class="fa-solid fa-envelope" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-dim);"></i>
+            <input type="email" id="login-email" value="citizen@oceanshield.gov.in" required style="width: 100%; padding: 0.75rem 1rem 0.75rem 2.8rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: #fff; font-size: 0.95rem;">
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+            <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">Password</label>
+            <a href="#" onclick="triggerOTPModal()" style="font-size: 0.8rem;">Forgot Password?</a>
+          </div>
+          <div style="position: relative;">
+            <i class="fa-solid fa-lock" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-dim);"></i>
+            <input type="password" id="login-password" value="password123" required style="width: 100%; padding: 0.75rem 1rem 0.75rem 2.8rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: #fff; font-size: 0.95rem;">
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+          <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted); cursor: pointer;">
+            <input type="checkbox" checked style="accent-color: var(--cyan-primary);"> Remember Me
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 1rem;">
+          <i class="fa-solid fa-right-to-bracket"></i> Sign In to Portal
+        </button>
+      </form>
+
+      <!-- Quick Demo Credentials Box -->
+      <div style="margin-top: 1.5rem; padding: 0.85rem; background: rgba(0, 242, 254, 0.05); border: 1px dashed var(--border-glow); border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--text-muted);">
+        <strong style="color: var(--cyan-primary);">💡 Demo Preset Email Presets:</strong><br>
+        • Citizen: <code>citizen@oceanshield.gov.in</code><br>
+        • Officer: <code>officer@oceanshield.gov.in</code><br>
+        • Rescue: <code>rescue@oceanshield.gov.in</code><br>
+        • Admin: <code>admin@oceanshield.gov.in</code>
+      </div>
+
+      <p style="text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: 1.5rem;">
+        Don't have an account? <a href="signup.html" style="font-weight: 700;">Sign Up Here</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Simulated OTP Modal -->
+  <div id="otp-modal" class="glass-card" style="display: none; position: fixed; inset: 0; margin: auto; width: 90%; max-width: 400px; height: fit-content; padding: 2rem; z-index: 10000; background: var(--bg-modal); border-color: var(--border-glow);">
+    <h3 style="margin-bottom: 0.5rem;">Simulated OTP Verification</h3>
+    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.2rem;">An instant 6-digit OTP code has been generated.</p>
+
+    <div style="display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1.5rem;">
+      <input type="text" maxlength="6" id="otp-input-field" placeholder="123456" style="text-align: center; font-size: 1.5rem; letter-spacing: 6px; padding: 0.6rem; width: 100%; background: rgba(255,255,255,0.08); border: 1px solid var(--cyan-primary); border-radius: var(--radius-sm); color: #fff;">
+    </div>
+
+    <button onclick="verifySimulatedOTP()" class="btn btn-primary" style="width: 100%;">Verify & Reset Password</button>
+    <button onclick="closeOTPModal()" class="btn btn-outline btn-sm" style="width: 100%; margin-top: 0.6rem;">Cancel</button>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    let selectedRole = 'Citizen';
+
+    function selectLoginRole(role, btnEl) {
+      selectedRole = role;
+      document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+
+      const emailMap = {
+        'Citizen': 'citizen@oceanshield.gov.in',
+        'Government Officer': 'officer@oceanshield.gov.in',
+        'Rescue Team': 'rescue@oceanshield.gov.in',
+        'Admin': 'admin@oceanshield.gov.in'
+      };
+      document.getElementById('login-email').value = emailMap[role];
+    }
+
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const pass = document.getElementById('login-password').value;
+      
+      if (Auth.login(email, pass, selectedRole)) {
+        setTimeout(() => window.location.href = 'dashboard.html', 700);
+      }
+    });
+
+    function triggerOTPModal() {
+      const email = document.getElementById('login-email').value;
+      const generatedOtp = Auth.sendOTPSimulated(email);
+      document.getElementById('otp-input-field').value = generatedOtp;
+      document.getElementById('otp-modal').style.display = 'block';
+    }
+
+    function closeOTPModal() {
+      document.getElementById('otp-modal').style.display = 'none';
+    }
+
+    function verifySimulatedOTP() {
+      showToast('OTP Verified successfully! Password reset granted.', 'success');
+      closeOTPModal();
+    }
+  </script>
+</body>
+</html>
